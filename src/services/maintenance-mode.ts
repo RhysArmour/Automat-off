@@ -1,5 +1,6 @@
 export const getMobileMaintenanceStatus = async () => {
   // call to param store
+  
   let paramValue: number;
   if ((paramValue === 0)) {
     return {
@@ -11,7 +12,7 @@ export const getMobileMaintenanceStatus = async () => {
 
   if ((paramValue === 1)) {
     return {
-      status: 500,
+      status: 503,
       message: 'Successfully hit endpoint',
       outageState: 'Outage On',
     };
@@ -31,7 +32,7 @@ export const getWebMaintenanceStatus = async () => {
 
   if ((paramValue === 'OFFLINE')) {
     return {
-      status: 500,
+      status: 503,
       message: 'Successfully hit endpoint',
       outageState: 'Outage On',
     };
