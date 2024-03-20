@@ -1,2 +1,2 @@
-export declare function validateJiraTicket(jiraTicketURL: string): Promise<number>;
+export declare function validateJiraTicket(jiraTicket: string): Promise<any>;
 //# sourceMappingURL=validator-service.d.ts.map
