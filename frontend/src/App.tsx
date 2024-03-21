@@ -15,8 +15,12 @@ function App() {
   };
 
   async function postData() {
-    const response = await fetch('http://localhost:4000/v1/maintenance-mode', requestOptions);
-    console.log(response);
+    const { status } = await fetch('http://localhost:4000/v1/maintenance-mode', requestOptions);
+    if (status === 404) {
+      setIsOnline(false);
+    } else {
+      setIsOnline(true);
+    }
   }
 
   useEffect(() => {
