@@ -17,10 +17,10 @@ function App() {
   async function postData() {
     const { status } = await fetch('http://localhost:4000/v1/maintenance-mode', requestOptions);
     console.log(status);
-    if (status === 404) {
-      setIsOnline(false);
-    } else {
+    if (status === 200) {
       setIsOnline(true);
+    } else {
+      setIsOnline(false);
     }
   }
 
