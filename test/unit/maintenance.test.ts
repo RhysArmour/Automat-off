@@ -1,13 +1,32 @@
-import { getMobileMaintenanceStatus } from '../../src/services/maintenance-mode';
+import * as maintenanceMode from '../../src/services/maintenance-mode';
 
-jest.mock('axios');
+const paramMock = jest.spyOn(maintenanceMode, 'getParamValue');
 
-describe('validatorService', () => {
-  it('should validate a valid Jira ticket URL', async () => {
-    const isValid = await getMobileMaintenanceStatus();
+describe('maintenanceService', () => {
+  it('When Param value is 1 for Mobile, it returns 503 OFF', async () => {
+    paramMock.mockResolvedValue('1');
 
-    console.log(isValid)
-    expect(isValid).toBe(true);
+    const result = await maintenanceMode.getMobileMaintenanceStatus()
+
+    console.log(result);
+    expect(result).toStrictEqual({
+      status: 503,
+      message: 'Successfully hit endpoint',
+      outageState: 'Outage On',
+    });
+  });
+
+  it('When Param value is 1 for Mobile, it returns 200 ON', async () => {
+    paramMock.mockResolvedValue('0');
+
+    const result = await maintenanceMode.getMobileMaintenanceStatus()
+
+    console.log(result);
+    expect(result).toStrictEqual({
+      status: 200,
+      message: 'Successfully hit endpoint',
+      outageState: 'Outage Off',
+    });
   });
 });
 
