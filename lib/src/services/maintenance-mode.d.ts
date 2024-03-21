@@ -1,3 +1,4 @@
+export declare const getParamValue: (route: string) => Promise<string>;
 export declare const getMobileMaintenanceStatus: () => Promise<{
     status: number;
     message: string;
