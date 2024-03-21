@@ -3,7 +3,7 @@ import { getMobileMaintenanceStatus, getWebMaintenanceStatus } from '../services
 
 export const maintenanceModeRouter: Router = Router();
 
-maintenanceModeRouter.get('/v1/maintenance-mode', async (req: Request, res: Response) => {
+maintenanceModeRouter.post('/v1/maintenance-mode', async (req: Request, res: Response) => {
   console.log('beginning maintenanceMode check');
   let result = {
     status: 404,
