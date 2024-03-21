@@ -6,12 +6,12 @@ const PageBody = ({ isOnline }: { isOnline: boolean }) => {
     <article className="page-body">
       {isOnline ? (
         <>
-          <p>I'm online!</p>
+          <h2 className='page-body__heading'>I'm online baby!</h2>
           <img className="page-body__image" src={elton} alt="Elton John - I'm still standing" />
         </>
       ) : (
         <>
-          <p>We're having a brief vacation - back online soon!</p>
+          <h2 className='page-body__heading'>We're having a brief vacation - back online soon!</h2>
           <img className="page-body__image" src={holiday} alt="Madonna - Holiday" />
         </>
       )}
